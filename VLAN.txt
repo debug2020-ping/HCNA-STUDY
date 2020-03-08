@@ -1,0 +1,64 @@
+LSW1:
+vlan batch 10 20 30
+#
+interface Ethernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/2
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/3
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+
+LSW2:
+vlan batch 10 20
+#
+interface Ethernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/2
+ port link-type access
+ port default vlan 10
+#
+interface Ethernet0/0/3
+ port link-type access
+ port default vlan 20
+#
+
+LSW3:
+vlan batch 10 20
+#
+interface Ethernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/2
+ port link-type access
+ port default vlan 10
+#
+interface Ethernet0/0/3
+ port link-type access
+ port default vlan 20
+#
+
+LSW4:
+vlan batch 20 30
+#
+interface Ethernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/2
+ port link-type access
+ port default vlan 20
+#
+interface Ethernet0/0/3
+ port link-type access
+ port default vlan 30
+#
+
