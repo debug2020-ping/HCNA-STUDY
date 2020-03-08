@@ -1,0 +1,20 @@
+telnet配置
+
+R1---telnet服务器
+interface Ethernet0/0/0
+ ip address 10.1.1.254 255.255.255.0
+#
+aaa
+ local-user telnet-user password cipher huawei
+ local-user privilege level 15
+ local-user telnet-user service-type telnet
+#
+user-interface vty 0 4
+ authentication-mode aaa
+
+----------------------------------------
+
+R2---telnet客户端
+interface Ethernet0/0/0
+ ip address 10.1.1.1 255.255.255.0
+#
