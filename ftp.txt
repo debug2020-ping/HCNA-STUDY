@@ -1,0 +1,19 @@
+R1£ºftp server
+interface Ethernet0/0/0
+ ip address 10.1.1.254 255.255.255.0
+#
+aaa
+ local-user ftp-user password cipher huawei
+ local-user ftp-user ftp-directory flash:
+ local-user ftp-user service-type ftp
+#
+FTP server enable
+#
+user-interface vty 0 4
+ authentication-mode aaa
+
+R2£ºftp client
+interface Ethernet0/0/0
+ ip address 10.1.1.1 255.255.255.0
+#
+
