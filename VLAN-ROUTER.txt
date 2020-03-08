@@ -1,0 +1,28 @@
+LSW1:
+vlan batch 10 20
+#
+interface Ethernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface Ethernet0/0/2
+ port link-type access
+ port default vlan 10
+#
+interface Ethernet0/0/3
+ port link-type access
+ port default vlan 20
+#
+
+
+R1:
+interface Ethernet0/0/0.10
+ dot1q termination vid 10
+ ip address 192.168.10.1 255.255.255.0
+ arp broadcast enable
+#
+interface Ethernet0/0/0.20
+ dot1q termination vid 20
+ ip address 192.168.20.1 255.255.255.0
+ arp broadcast enable
+#
